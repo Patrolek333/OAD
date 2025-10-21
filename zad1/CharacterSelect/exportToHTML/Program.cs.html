@@ -1,0 +1,87 @@
+<html>
+<head>
+<title>Program.cs</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #6c95eb;}
+.s1 { color: #d0d0d0;}
+.s2 { color: #bdbdbd;}
+.s3 { color: #c9a26d;}
+.s4 { color: #ed94c0;}
+.s5 { color: #85c46c; font-style: italic;}
+</style>
+</head>
+<body bgcolor="#191a1c">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Program.cs</font>
+</center></td></tr></table>
+<pre><span class="s0">using </span><span class="s1">CharacterSelect</span><span class="s2">.</span><span class="s1">Application</span><span class="s2">.</span><span class="s1">Factory</span><span class="s2">;</span>
+<span class="s0">using </span><span class="s1">CharacterSelect</span><span class="s2">.</span><span class="s1">Domain</span><span class="s2">.</span><span class="s1">Enum</span><span class="s2">;</span>
+
+<span class="s0">namespace </span><span class="s1">CharacterSelect</span>
+<span class="s2">{</span>
+    <span class="s0">public static class </span><span class="s1">Program</span>
+    <span class="s2">{</span>
+        <span class="s0">public static void </span><span class="s1">Main</span><span class="s2">()</span>
+        <span class="s2">{</span>
+            <span class="s1">Console</span><span class="s2">.</span><span class="s1">Title </span><span class="s2">= </span><span class="s3">&quot;Character Select&quot;</span><span class="s2">;</span>
+            <span class="s1">Console</span><span class="s2">.</span><span class="s1">OutputEncoding </span><span class="s2">= </span><span class="s1">System</span><span class="s2">.</span><span class="s1">Text</span><span class="s2">.</span><span class="s1">Encoding</span><span class="s2">.</span><span class="s1">UTF8</span><span class="s2">;</span>
+
+            <span class="s0">while </span><span class="s2">(</span><span class="s0">true</span><span class="s2">)</span>
+            <span class="s2">{</span>
+                <span class="s1">Console</span><span class="s2">.</span><span class="s1">Clear</span><span class="s2">();</span>
+                <span class="s1">Console</span><span class="s2">.</span><span class="s1">WriteLine</span><span class="s2">(</span><span class="s3">&quot;=== WYBÓR POSTACI ===&quot;</span><span class="s2">);</span>
+                <span class="s1">Console</span><span class="s2">.</span><span class="s1">WriteLine</span><span class="s2">(</span><span class="s3">&quot;1) Wojownik&quot;</span><span class="s2">);</span>
+                <span class="s1">Console</span><span class="s2">.</span><span class="s1">WriteLine</span><span class="s2">(</span><span class="s3">&quot;2) Mag&quot;</span><span class="s2">);</span>
+                <span class="s1">Console</span><span class="s2">.</span><span class="s1">WriteLine</span><span class="s2">(</span><span class="s3">&quot;3) Łotrzyk&quot;</span><span class="s2">);</span>
+                <span class="s1">Console</span><span class="s2">.</span><span class="s1">WriteLine</span><span class="s2">(</span><span class="s3">&quot;4) Hivus&quot;</span><span class="s2">);</span>
+                <span class="s1">Console</span><span class="s2">.</span><span class="s1">WriteLine</span><span class="s2">(</span><span class="s3">&quot;5) Żyd&quot;</span><span class="s2">);</span>
+                <span class="s1">Console</span><span class="s2">.</span><span class="s1">WriteLine</span><span class="s2">(</span><span class="s3">&quot;6) Redo&quot;</span><span class="s2">);</span>
+                <span class="s1">Console</span><span class="s2">.</span><span class="s1">WriteLine</span><span class="s2">(</span><span class="s3">&quot;0) Wyjście&quot;</span><span class="s2">);</span>
+                <span class="s1">Console</span><span class="s2">.</span><span class="s1">Write</span><span class="s2">(</span><span class="s3">&quot;Wybierz klasę [0-6]: &quot;</span><span class="s2">);</span>
+
+                <span class="s1">var input </span><span class="s2">= </span><span class="s1">Console</span><span class="s2">.</span><span class="s1">ReadLine</span><span class="s2">();</span>
+                <span class="s0">if </span><span class="s2">(</span><span class="s1">input </span><span class="s2">== </span><span class="s3">&quot;0&quot;</span><span class="s2">) </span><span class="s0">break</span><span class="s2">;</span>
+
+                <span class="s0">if </span><span class="s2">(</span><span class="s1">!</span><span class="s0">int</span><span class="s2">.</span><span class="s1">TryParse</span><span class="s2">(</span><span class="s1">input</span><span class="s2">, </span><span class="s0">out </span><span class="s1">var choice</span><span class="s2">) || </span><span class="s1">choice </span><span class="s2">&lt; </span><span class="s4">1 </span><span class="s2">|| </span><span class="s1">choice </span><span class="s2">&gt; </span><span class="s4">6</span><span class="s2">)</span>
+                <span class="s2">{</span>
+                    <span class="s1">Pause</span><span class="s2">(</span><span class="s3">&quot;Niepoprawny wybór. Naciśnij Enter…&quot;</span><span class="s2">);</span>
+                    <span class="s0">continue</span><span class="s2">;</span>
+                <span class="s2">}</span>
+
+                <span class="s1">var cls </span><span class="s2">= (</span><span class="s1">CharacterClass</span><span class="s2">)</span><span class="s1">choice</span><span class="s2">;</span>
+
+                <span class="s1">Console</span><span class="s2">.</span><span class="s1">Write</span><span class="s2">(</span><span class="s3">&quot;Podaj imię postaci (Enter = domyślne): &quot;</span><span class="s2">);</span>
+                <span class="s1">var name </span><span class="s2">= </span><span class="s1">Console</span><span class="s2">.</span><span class="s1">ReadLine</span><span class="s2">();</span>
+
+                <span class="s1">var character </span><span class="s2">= </span><span class="s1">CharacterFactory</span><span class="s2">.</span><span class="s1">Create</span><span class="s2">(</span><span class="s1">cls</span><span class="s2">, </span><span class="s1">name</span><span class="s2">);</span>
+
+                <span class="s1">Console</span><span class="s2">.</span><span class="s1">Clear</span><span class="s2">();</span>
+                <span class="s1">Console</span><span class="s2">.</span><span class="s1">WriteLine</span><span class="s2">(</span><span class="s3">&quot;&gt;&gt;&gt; Utworzono postać!&quot;</span><span class="s2">);</span>
+                <span class="s1">character</span><span class="s2">.</span><span class="s1">Describe</span><span class="s2">();</span>
+
+                <span class="s5">// Console.WriteLine(&quot;\nAkcja: atak&quot;);</span>
+                <span class="s5">// character.Attack();</span>
+                <span class="s5">//</span>
+                <span class="s5">// Console.WriteLine(&quot;Akcja: umiejętność specjalna&quot;);</span>
+                <span class="s5">// character.UseSpecial();</span>
+
+                <span class="s1">Console</span><span class="s2">.</span><span class="s1">WriteLine</span><span class="s2">(</span><span class="s3">&quot;\nChcesz utworzyć kolejną postać? (t/n): &quot;</span><span class="s2">);</span>
+                <span class="s1">var again </span><span class="s2">= (</span><span class="s1">Console</span><span class="s2">.</span><span class="s1">ReadLine</span><span class="s2">() </span><span class="s1">?? </span><span class="s3">&quot;&quot;</span><span class="s2">).</span><span class="s1">Trim</span><span class="s2">().</span><span class="s1">ToLowerInvariant</span><span class="s2">();</span>
+                <span class="s0">if </span><span class="s2">(</span><span class="s1">again </span><span class="s2">!= </span><span class="s3">&quot;t&quot; </span><span class="s2">&amp;&amp; </span><span class="s1">again </span><span class="s2">!= </span><span class="s3">&quot;tak&quot;</span><span class="s2">) </span><span class="s0">break</span><span class="s2">;</span>
+            <span class="s2">}</span>
+
+            <span class="s1">Console</span><span class="s2">.</span><span class="s1">WriteLine</span><span class="s2">(</span><span class="s3">&quot;\nDzięki za grę! Do zobaczenia 👋&quot;</span><span class="s2">);</span>
+        <span class="s2">}</span>
+
+        <span class="s0">private static void </span><span class="s1">Pause</span><span class="s2">(</span><span class="s0">string </span><span class="s1">msg</span><span class="s2">)</span>
+        <span class="s2">{</span>
+            <span class="s1">Console</span><span class="s2">.</span><span class="s1">WriteLine</span><span class="s2">(</span><span class="s1">msg</span><span class="s2">);</span>
+            <span class="s1">Console</span><span class="s2">.</span><span class="s1">ReadLine</span><span class="s2">();</span>
+        <span class="s2">}</span>
+    <span class="s2">}</span>
+<span class="s2">}</span></pre>
+</body>
+</html>

@@ -12,6 +12,9 @@ public abstract class Character
     public int Strength { get; protected set; }
     public int Intelligence { get; protected set; }
     public int Agility { get; protected set; }
+    public int Charm { get; protected set; }
+    public int Sexiness { get; protected set; }
+    public int Main_stat { get; protected set; }
 
     protected Character(string name, CharacterClass @class)
     {
@@ -23,6 +26,11 @@ public abstract class Character
     {
         Console.WriteLine($"[{Class}] {Name}");
         Console.WriteLine($"  HP: {Health}");
-        Console.WriteLine($"  STR: {Strength}  INT: {Intelligence}  AGI: {Agility}");
+        Console.WriteLine($"  STR: {Strength}  INT: {Intelligence}  AGI: {Agility} CHA: {Charm} SEX: {Sexiness}");
+    }
+
+    public virtual void Main_stat()
+    {
+        Console.WriteLine($" {Main_stat*3} obrazen*");
     }
 }
