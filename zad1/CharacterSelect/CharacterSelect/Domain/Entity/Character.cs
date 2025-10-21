@@ -14,7 +14,9 @@ public abstract class Character
     public int Agility { get; protected set; }
     public int Charm { get; protected set; }
     public int Sexiness { get; protected set; }
-    public int Main_stat { get; protected set; }
+    public int MainStat { get; protected set; }
+    public string Special { get; protected set; }
+    public int Atak { get; protected set; }
 
     protected Character(string name, CharacterClass @class)
     {
@@ -29,8 +31,12 @@ public abstract class Character
         Console.WriteLine($"  STR: {Strength}  INT: {Intelligence}  AGI: {Agility} CHA: {Charm} SEX: {Sexiness}");
     }
 
-    public virtual void Main_stat()
+    public virtual void Attack()
     {
-        Console.WriteLine($" {Main_stat*3} obrazen*");
+        Console.WriteLine($" {Atak} obrażeń");
+    }
+    public virtual void UseSpecial()
+    {
+        Console.WriteLine($" {Special} ");
     }
 }

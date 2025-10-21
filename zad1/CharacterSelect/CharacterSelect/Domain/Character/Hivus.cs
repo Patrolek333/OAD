@@ -13,6 +13,8 @@ public sealed class Hivus : Entity.Character
         Agility = 14;
         Charm = 99;
         Sexiness = 99;
-        Main_stat = 99;
+        MainStat = this.Charm;
+        Atak = MainStat * 3;
+        Special = "STD Spread";
     }
 }

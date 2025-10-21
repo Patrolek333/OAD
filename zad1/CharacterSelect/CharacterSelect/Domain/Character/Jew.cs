@@ -9,10 +9,12 @@ public sealed class Jew : Entity.Character
     {
         Health = 80;
         Strength = 9;
-        Intelligence = 16;
-        Agility = 5;
-        Charm = 3;
-        Sexiness = 8;
-        Main_stat = 16;
+        Intelligence = 10;
+        Agility = 8;
+        Charm = 15;
+        Sexiness = 6;
+        MainStat = this.Charm;
+        Atak = MainStat * 3;
+        Special = "Promised Land";
     }
 }

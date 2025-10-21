@@ -12,7 +12,9 @@ public sealed class Redo : Entity.Character
         Intelligence = 18;
         Agility = 10;
         Charm = 5;
-        Sexiness = 13;
-        Main_stat = 18;
+        Sexiness = 20;
+        MainStat = this.Sexiness;
+        Atak = MainStat * 3;
+        Special = "Heal";
     }
 }

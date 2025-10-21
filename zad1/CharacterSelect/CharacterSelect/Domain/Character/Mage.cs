@@ -13,6 +13,8 @@ public sealed class Mage : Entity.Character
         Agility = 10;
         Charm = 12;
         Sexiness = 3;
-        Main_stat = 16;
+        MainStat = this.Intelligence;
+        Atak = MainStat * 3;
+        Special = "Fireball";
     }
 }

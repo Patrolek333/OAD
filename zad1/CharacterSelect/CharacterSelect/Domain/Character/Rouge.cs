@@ -13,6 +13,8 @@ public sealed class Rogue : Entity.Character
         Agility = 15;
         Charm = 3;
         Sexiness = 9;
-        Main_stat = 15;
+        MainStat = this.Agility;
+        Atak = MainStat * 3;
+        Special = "Ambush";
     }
 }

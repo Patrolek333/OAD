@@ -13,6 +13,8 @@ public sealed class Warrior : Entity.Character
         Agility = 8;
         Charm = 6;
         Sexiness = 9;
-        Main_stat = 14;
+        MainStat = this.Strength;
+        Atak = MainStat * 3;
+        Special = "Double Damage";
     }
 }
